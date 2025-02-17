@@ -11,7 +11,6 @@ export const startGame = async (req: Request, res: Response) => {
         throw new Error("Error Starting Game")
     }
   } catch (error) {
-    console.log(error)
     res.status(500).json({ error: "Error starting game" });
   }
 };
@@ -50,7 +49,6 @@ export const getGameHistory = async (req: Request, res: Response) => {
     const games = await Game.find({userId:userId}).sort({ createdAt: -1 });
     res.json(games);
   } catch (error) {
-    console.log(error)
     res.status(500).json({ error: "Error fetching game history" });
   }
 };

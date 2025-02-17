@@ -18,7 +18,6 @@ export const verifyToken = (token: string) => {
 
   try {
     const decoded = jwt.verify(token, JWT_SECRET) as jwt.JwtPayload;
-    console.log(decoded);
     return decoded;
   } catch (error) {
     throw new Error(`Invalid token: ${(error as Error).message}`);

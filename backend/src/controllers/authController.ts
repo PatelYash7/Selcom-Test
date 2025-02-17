@@ -15,9 +15,9 @@ export const register = async (req: Request, res: Response) => {
         email:email,
         password:hashedPassword
     })
-    if(user){
-
-        res.status(200).json({ message: 'User registered successfully' });
+    const token = generateToken(user._id as string);
+    if(user && token){
+        res.status(200).json({ message: 'User registered successfully',token });
     }else{
         throw new Error('Error registering User')
     }

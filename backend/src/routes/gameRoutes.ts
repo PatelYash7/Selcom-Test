@@ -12,6 +12,6 @@ router.use(authMiddleware as RequestHandler);
 router.post("/start", startGame as RequestHandler);
 router.post("/end", endGame as RequestHandler);
 router.get("/history", getGameHistory as RequestHandler);
-router.get("/find", findGame as RequestHandler);
+router.post("/find", findGame as RequestHandler);
 
 export default router;
