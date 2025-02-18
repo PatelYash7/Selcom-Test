@@ -8,7 +8,7 @@ const GameBoard = ({
   player2: string;
   onGameEnd: (winner: string) => void;
 }) => {
-  const [board, setBoard] = useState(Array(9).fill(null));
+  const [board, setBoard] = useState<any[]>(Array(9).fill(null));
   const [isPlayer1Turn, setIsPlayer1Turn] = useState(true);
   const [winner, setWinner] = useState<string | null>(null);
 
