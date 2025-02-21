@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { TCellValue } from "../utils/type";
+
 const GameBoard = ({
   player1,
   player2,
@@ -8,11 +10,11 @@ const GameBoard = ({
   player2: string;
   onGameEnd: (winner: string) => void;
 }) => {
-  const [board, setBoard] = useState<any[]>(Array(9).fill(null));
+  const [board, setBoard] = useState<TCellValue[]>(Array(9).fill(null));
   const [isPlayer1Turn, setIsPlayer1Turn] = useState(true);
   const [winner, setWinner] = useState<string | null>(null);
 
-  const checkWinner = (squares: any[]) => {
+  const checkWinner = (squares: TCellValue[]) => {
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -59,7 +61,7 @@ const GameBoard = ({
 
   return (
     <div className="game-board text-center space-y-4">
-      <h3 className="text-xl font-semibold text-gray-700">
+      <h3 className="text-xl font-semibold  text-gray-700">
         {isPlayer1Turn ? `${player1}'s Turn (X)` : `${player2}'s Turn (O)`}
       </h3>
       <div className="grid grid-cols-3 gap-2 w-fit mx-auto">

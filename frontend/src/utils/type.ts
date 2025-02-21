@@ -7,3 +7,6 @@ export type TGame = {
   createdAt: string; // ISO date string
   __v: number;
 };
+
+
+export type TCellValue = 'X' | 'O' | null;
